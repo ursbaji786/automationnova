@@ -1,0 +1,11 @@
+package git.learn;
+
+public class Push2Git {
+	
+	public static void main(String[] args) {
+		
+		System.out.println(" pushing this code to git ");
+	}
+	
+
+}
