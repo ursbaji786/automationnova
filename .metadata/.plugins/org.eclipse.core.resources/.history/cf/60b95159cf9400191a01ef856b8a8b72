@@ -1,0 +1,13 @@
+package git.learn;
+
+public class PushMaster2DevBranch {
+	
+	public static void main(String[] args) {
+		
+		System.out.println(" pushing this code to git ");
+		
+		
+	}
+	
+
+}
