@@ -1,0 +1,36 @@
+package week3.day2;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class LearnMapSet {
+	
+	public static void main(String[] args) {
+		
+		String name = "Chennai";
+		
+		char[] charArray = name.toCharArray();
+		
+		// System.out.println("seperated chars from word "+charArray );
+		
+		Map<Character,Integer> nameMap = new HashMap<>();
+		for (int i = 0; i < charArray.length; i++) {
+			
+			nameMap.put(charArray[i], i);
+			
+			
+		}
+		System.out.println(nameMap);
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+
+}

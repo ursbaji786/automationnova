@@ -1,0 +1,15 @@
+package execution;
+
+import com.google.common.util.concurrent.AbstractExecutionThreadService;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
+
+@CucumberOptions (features = "src/main/java/features/Login.feature",glue = "implementations",
+
+		monochrome=true, dryRun=true, snippets=SnippetType.CAMELCASE)
+
+
+public class RunTest extends AbstractTestNG  {
+
+}

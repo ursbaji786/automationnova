@@ -1,0 +1,54 @@
+package com.yalla.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import com.yalla.testng.api.base.Annotations;
+
+public class CreateLeadPage extends Annotations {
+	
+	@FindBy(how=How.NAME, using = "submitButton") WebElement eleClickSubmit;
+	public CreateLeadPage()
+	{
+		PageFactory.initElements(driver, this); 
+
+	}
+	@FindBy(how=How.ID, using="createLeadForm_companyName") WebElement eleEnterCompanyName;
+	
+	public CreateLeadPage enterCompanyName()
+	{
+		clearAndType(eleEnterCompanyName, "EQ");
+		return this;
+	}
+	
+	@FindBy(how=How.ID, using="createLeadForm_firstName") WebElement eleEnterFirstName;
+	public CreateLeadPage enterFirstName()
+	{
+		clearAndType(eleEnterFirstName, "baji");
+		return this;
+	}
+	
+	@FindBy(how=How.ID, using="createLeadForm_lastName") WebElement eleEnterLastName;
+	public CreateLeadPage enterLastName()
+	{
+		clearAndType(eleEnterLastName, "shaik");
+		return this;
+	}
+	
+	
+	public void clickCreateLeadButton()
+	{
+		click(eleClickSubmit);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

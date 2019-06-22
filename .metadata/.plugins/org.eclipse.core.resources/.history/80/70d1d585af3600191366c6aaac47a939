@@ -1,0 +1,106 @@
+package week2.day2;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DuplicateLeadTC2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		String duplicateLeadTitle = "Duplicate Lead";
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/main");
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+		
+		// login
+		WebElement userName = driver.findElementById("username");
+		userName.sendKeys("DemoSalesManager");
+		driver.findElementById("password").sendKeys("crmsfa");
+		driver.findElementByClassName("decorativeSubmit").click();
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		driver.findElementByLinkText("CRM/SFA").click();
+		
+		//leads
+		
+		driver.findElementByLinkText("Leads").click();
+		
+		driver.findElementByLinkText("Find Leads").click();
+		driver.findElementByXPath("(//span[@class='x-tab-strip-text '])[3]").click();
+		driver.findElementByName("emailAddress").sendKeys("abc@gmail.com");
+		driver.findElementByXPath("(//button[@type='button'])[7]").click();
+		Thread.sleep(5000);
+		
+		// print first lead name
+		
+		WebElement firstLeadName = driver.findElementByXPath("(//a[@class='linktext'])[5]");
+		String capturedName = firstLeadName.getText();
+		
+		System.out.println(capturedName);
+		
+		
+		// first lead 
+		
+		driver.findElementByXPath("(//a[@class='linktext'])[4]").click();
+		String title1 = driver.getTitle();
+		System.out.println(title1);
+		
+		// click duplicate lead
+		
+		driver.findElementByLinkText("Duplicate Lead").click();
+		
+		// verify title as Duplicate Lead
+		
+		String capturedTitle = driver.getTitle();
+		
+		System.out.println(capturedTitle);
+		
+		if (capturedTitle.contains(duplicateLeadTitle))
+			System.out.println("title is same");
+		else 
+			System.out.println("title is different");
+		
+		// click on create lead button
+		
+		driver.findElementByName("submitButton").click();
+		
+		// checking name
+		
+		WebElement firstName = driver.findElementById("viewLead_firstName_sp");
+		String capturedFirstName = firstName.getText();
+		System.out.println(capturedFirstName);
+		
+		if (capturedFirstName.contains(capturedName))
+			System.out.println("first name contains in captured name");
+		else
+			System.out.println("not matched");
+		
+			
+		driver.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+	}
+
+}

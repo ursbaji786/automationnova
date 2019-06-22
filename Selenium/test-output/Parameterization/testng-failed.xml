@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Parameterization]">
+  <test thread-count="5" name="TestParameter(failed)">
+    <classes>
+      <class name="week5.day1.ParameterizationLearn">
+        <methods>
+          <include name="closeApp"/>
+          <include name="loginApp"/>
+          <include name="createLeadTest"/>
+        </methods>
+      </class> <!-- week5.day1.ParameterizationLearn -->
+    </classes>
+  </test> <!-- TestParameter(failed) -->
+</suite> <!-- Failed suite [Parameterization] -->

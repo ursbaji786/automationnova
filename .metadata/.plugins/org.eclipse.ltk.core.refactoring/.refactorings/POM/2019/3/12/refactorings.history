@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TC001_LoginAndLogout.java&apos; to &apos;POM/src/main/java/com.yalla.testcases&apos;&#x0D;&#x0A;- Original project: &apos;POM&apos;&#x0D;&#x0A;- Destination element: &apos;POM/src/main/java/com.yalla.testcases&apos;&#x0D;&#x0A;- Original element: &apos;com.yalla.testcases.TC001_LoginAndLogout.java&apos;" description="Copy compilation unit" destination="/src\/main\/java&lt;com.yalla.testcases" element1="/src\/main\/java&lt;com.yalla.testcases{TC001_LoginAndLogout.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1553340508939" units="1" version="1.0"/>
+</session>

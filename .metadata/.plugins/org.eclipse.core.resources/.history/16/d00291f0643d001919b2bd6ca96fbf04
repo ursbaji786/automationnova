@@ -1,0 +1,34 @@
+package week4.day2;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ProjectTestCases {
+	
+	public void browserLaunch()
+	{
+
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+	}
+	
+	public void zoomCar()
+	{
+		
+		
+		
+		
+	}
+	
+	
+
+	public static void main(String[] args) {
+
+		ProjectTestCases obj = new ProjectTestCases();
+		obj.browserLaunch();
+		obj.zoomCar();
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,86 @@
+package week2.day2;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EditLeadTC {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		String companyName = "EQI";
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/main");
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+		
+		// login
+		WebElement userName = driver.findElementById("username");
+		userName.sendKeys("DemoSalesManager");
+		driver.findElementById("password").sendKeys("crmsfa");
+		driver.findElementByClassName("decorativeSubmit").click();
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		driver.findElementByLinkText("CRM/SFA").click();
+		
+		//leads
+		
+		driver.findElementByLinkText("Leads").click();
+		
+		driver.findElementByLinkText("Find Leads").click();
+		driver.findElementByXPath("(//span[@class='x-tab-strip-text '])[3]").click();
+		driver.findElementByName("emailAddress").sendKeys("abc@gmail.com");
+		driver.findElementByXPath("(//button[@type='button'])[7]").click();
+		Thread.sleep(5000);
+		
+		// first lead
+		
+		driver.findElementByXPath("(//a[@class='linktext'])[4]").click();
+		String title1 = driver.getTitle();
+		System.out.println(title1);
+		
+		// click edit
+		
+		driver.findElementByLinkText("Edit").click();
+		
+		// change company name
+		
+		WebElement enterCompanyName = driver.findElementById("updateLeadForm_companyName");
+		enterCompanyName.clear();
+		enterCompanyName.sendKeys(companyName);
+		// update
+		driver.findElementByName("submitButton").click();
+		// confirm changed name
+		
+		WebElement changedCompnayName = driver.findElementById("viewLead_companyName_sp");
+		String updatedName = changedCompnayName.getText();
+		if(updatedName.contains(companyName))
+			System.out.println("Both are same");
+		else
+			System.out.println("both are different");
+		driver.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+	}
+
+}

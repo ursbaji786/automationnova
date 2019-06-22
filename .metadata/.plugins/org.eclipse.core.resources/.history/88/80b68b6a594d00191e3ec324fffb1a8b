@@ -1,0 +1,9 @@
+package com.yalla.pages;
+
+public class ViewLead {
+
+	public ViewLead() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

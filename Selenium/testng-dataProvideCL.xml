@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteDataProvider">
+
+<parameter name="url" value="http://leaftaps.com/opentaps/"></parameter>
+	<parameter name="username" value="DemoSalesManager"></parameter>
+	<parameter name="password" value="crmsfa"></parameter>
+
+
+
+  <test thread-count="5" name="TestDataProvider">
+    <classes>
+      <class name="week5.day2.CreateLeadDataProvider"/>
+    </classes>
+  </test> <!-- TestDataProvider -->
+</suite> <!-- SuiteDataProvider -->

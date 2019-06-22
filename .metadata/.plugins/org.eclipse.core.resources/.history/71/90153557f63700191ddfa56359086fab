@@ -1,0 +1,107 @@
+package week3.day2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.java8.Ta;
+
+public class LearnListSet {
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://erail.in/");
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+		
+		driver.findElementById("txtStationFrom").clear();
+		driver.findElementById("txtStationFrom").sendKeys("MAS",Keys.TAB);
+		
+
+		//driver.findElementById("txtStationTo").clear();
+		driver.findElementById("txtStationTo").sendKeys("TVR",Keys.TAB);
+		driver.findElementById("chkSelectDateOnly").click();
+		Thread.sleep(3000);
+		
+		// duplicate train numbers 
+		
+		List<WebElement> trainNumbers = driver.findElementsByXPath("//table[@class='DataTable TrainList']//tr/td[1]");
+		System.out.println(trainNumbers.size());
+		/*for (WebElement webElement : trainNumbers) {
+			System.out.println(webElement.getText());
+			
+		}*/
+		
+		
+		Set<WebElement> trainNum1 = new HashSet<WebElement>();
+		System.out.println(trainNum1.addAll(trainNumbers));
+		
+		if(trainNumbers.size() == trainNum1.size())
+		System.out.println("count of train numbers are same");
+		else
+			System.out.println("count of train numbers are different");
+		
+		// sorting of train number
+		
+		List<Integer> trainIntArray = new ArrayList<Integer>();
+		for (WebElement trainValues : trainNumbers) {
+			
+			//trainIntArray.add(Integer.parseInt(trainValues.getText()));
+			
+		String fromWebElement = trainValues.getText();
+		int parseInt = Integer.parseInt(fromWebElement);
+		trainIntArray.add(parseInt);
+		
+		
+	}
+	Collections.sort(trainIntArray);
+	System.out.println(trainIntArray);
+	
+	// click on UI for train number and get that numbers list
+	
+	driver.findElementByLinkText("Train").click();
+	List<WebElement> trainNosAfterClick = driver.findElementsByXPath("//table[@class='DataTable TrainList']//tr/td[1]");
+	System.out.println(trainNosAfterClick.size());
+	List<Integer> sortTrainIntArray = new ArrayList<Integer>();
+	
+	for (WebElement sortedTrainValues : trainNosAfterClick) {
+	
+		String sorted = sortedTrainValues.getText();
+		int parseIntAfterClick = Integer.parseInt(sorted);
+		sortTrainIntArray.add(parseIntAfterClick);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+
+}

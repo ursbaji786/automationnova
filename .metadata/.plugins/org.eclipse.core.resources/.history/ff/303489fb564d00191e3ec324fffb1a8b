@@ -1,0 +1,9 @@
+package com.yalla.pages;
+
+public class LeadPage {
+
+	public LeadPage() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

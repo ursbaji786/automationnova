@@ -1,0 +1,16 @@
+package week4.day2;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class facebookNotifications {
+
+	// To disable notifications in chrome for facebook, use the below code:
+
+		ChromeOptions op = new ChromeOptions();
+		op.addArguments("--disable-notifications");
+		ChromeDriver driver = new ChromeDriver(op);
+
+	
+	
+}

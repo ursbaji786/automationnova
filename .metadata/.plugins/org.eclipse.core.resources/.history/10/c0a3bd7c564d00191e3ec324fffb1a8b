@@ -1,0 +1,18 @@
+package com.yalla.pages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import com.yalla.testng.api.base.Annotations;
+
+public class MyHomePage extends Annotations {
+
+	public MyHomePage() {
+		PageFactory.initElements(driver, this);
+		}
+	
+	
+	@FindBy(how=How)
+	
+	
+
+}
